@@ -1,0 +1,16 @@
+{
+    "contents" : "library(slidify)\n# kolmas loeng\nsetwd(\"~/Dropbox/Onkobioloogia/Onkoviirused/onkoviirused/\")\nauthor(\"onkoviirused\")\n\n# kolmas loeng\npublish(user = \"tpall\", repo = \"Onkoviirused\")\n\n",
+    "created" : 1411375990447.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1158154550",
+    "id" : "8DBEA33E",
+    "lastKnownWriteTime" : 1411377964,
+    "path" : "~/Dropbox/Onkobioloogia/Onkoviirused/slidify_stuff.R",
+    "project_path" : "slidify_stuff.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

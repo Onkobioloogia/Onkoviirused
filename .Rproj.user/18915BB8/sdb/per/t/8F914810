@@ -1,0 +1,17 @@
+{
+    "contents" : "library(slidify)\n# kolmas loeng\nsetwd(\"~/Dropbox/Onkobioloogia/\")\nauthor(\"Onkoviirused\")\n\n# kolmas loeng\npublish(user = \"tpall\", repo = \"Onkoviirused\")\n",
+    "created" : 1411379232347.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3981858340",
+    "id" : "8F914810",
+    "lastKnownWriteTime" : 1411379671,
+    "path" : "~/Dropbox/Onkobioloogia/Onkoviirused/create.R",
+    "project_path" : "create.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

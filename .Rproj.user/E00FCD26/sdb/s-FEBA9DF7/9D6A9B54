@@ -1,0 +1,16 @@
+{
+    "contents" : "library(slidify)\nlibrary(\"slidifyLibraries\")\n# kolmas loeng\n# setwd(\"~/Dropbox/Onkobioloogia/\")\n# author(\"Onkoviirused\")\nslidify(\"index.Rmd\")\nbrowseURL(\"index.html\")\npublish_github(\"Onkoviirused\",\"tpall\")\n",
+    "created" : 1418828842355.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4101642746",
+    "id" : "9D6A9B54",
+    "lastKnownWriteTime" : 1418828975,
+    "path" : "~/Dropbox/Onkobioloogia/Onkoviirused/create.R",
+    "project_path" : "create.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
