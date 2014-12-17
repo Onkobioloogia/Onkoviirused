@@ -398,7 +398,7 @@ Nature 513, 202–209 (11 September 2014) doi:10.1038/nature13480
 
 --- .segue .dark .nobackground
 
-## Lingid kõigile loengutele
+## Lingid loengutele
 
 --- &twocol 
 
