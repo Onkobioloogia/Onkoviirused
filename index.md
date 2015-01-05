@@ -157,7 +157,7 @@ Viirus | Genoom | Kasvaja | Esmakirjeldus
 Epstein-Barr viirus (EBV; *human herpesvirus 4*) | dsDNA herpesviirus | Burkitt'i lümfoom | 1964 
 B-hepatiidi viirus (HBV) | ss/dsDNA hepadenoviirus | maksa kartsinoomid | 1965
 inimese T-lümfotroopne viirus I (HTLV-I) | pluss-ahelaline ssRNA retroviirus | T-rakuline leukeemia | 1980
-inimese papilloomiviirused (HPV) 16 ja -18 | dsDNA pappilloomiviirus | emakakaela (*cervical*) vähk, peenisekasvajad, anogenitaal- ja  pea-kaela kasvajad | 1983-84
+inimese papilloomiviirused (HPV) 16 ja -18 | dsDNA papilloomiviirus | emakakaela (*cervical*) vähk, peenisekasvajad, anogenitaal- ja  pea-kaela kasvajad | 1983-84
 C-hepatiidi viirus (HCV) | pluss-ahelaline ssRNA flaviviirus | maksa kartsinoomid ja lümfoomid | 1989
 Kaposi sarkoomi herpesviirus (KSHV; ; *human herpesvirus 8*) | dsDNA herpesviirus | Kaposi sarkoom, kehaõõne-lümfoom | 1994
 Merkeli rakkude polüoomiviirus | dsDNA polüoomiviirus | Merkeli rakkude kartsinoom | 2008
