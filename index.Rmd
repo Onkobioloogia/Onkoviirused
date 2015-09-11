@@ -2,7 +2,7 @@
 title       : Kasvajaviirused
 subtitle    : Onkobioloogia
 author      : Taavi Päll
-job         : vanemteadur, VTAK
+job         : lektor, Tallinna Tehnikaülikool
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
@@ -18,6 +18,15 @@ img {
   max-width: 600px; 
 }
 </style>
+
+<style> .title-slide {
+  background-image:url(http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg); 
+  background-repeat: no-repeat; 
+  background-position: 90% 5%; 
+  background-size: 46%; 
+  background-color: #CBE7A5; /* ; ; */ }
+  background-color: #FFFFFF; /*#CBE7A5 #EDE0CF; ; #CA9F9D*/
+}
 
 <style> .title-slide {
   background-color: #FFFFFF; /*#CBE7A5 #EDE0CF; ; #CA9F9D*/
