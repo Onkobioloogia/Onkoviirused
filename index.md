@@ -109,7 +109,7 @@ strong {
 ![lifemag](http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg)
 
 *** =right
-Möödunud sajandi 50-ndatel aastatel, kui oli hiirte peal leitud seosed leukeemia ja viirusnakkuse vahel, tekkis **hüpotees, et vähk viirushaigus**.
+Möödunud sajandi 50-ndatel aastatel, kui oli hiirte peal leitud seosed leukeemia ja viirusnakkuse vahel, tekkis **hüpotees, et vähk on viirushaigus**.
 
 --- &twocol bg:lavender
 ## Viirused põhjustavad rakkude transformatsiooni
