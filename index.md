@@ -64,14 +64,16 @@ strong {
 }
 </style>
 
-
---- &twocol
+---.segue .dark .nobackground
 ## Tuumor-/onkoviiruste avastamine
 
-*** =left
-- 1908 aastal näitasid Taani teadlased Vilhelm Ellerman (1871-1924) ja Oluf Bang (1881-1937) et **lindude leukeemia** (*avian viral leukemia*) kandub viraalsel teel üle.
+--- &twocol
+## Lindude leukeemia viraalne ülekanne
 
-- 1909-11 aastatel katsetas Francis Peyton Rous (1879-1970) talle uurimiseks toodud **kana sarkoomiga** ja leidis samuti, et seda tuumorit on võimalik kanadel üle kanda vähi rakkudest sõltumatult.
+
+*** =left
+- 1908 aastal näitasid Taani teadlased **Vilhelm Ellerman** (1871-1924) ja **Oluf Bang** (1881-1937) et **lindude leukeemia** (*avian viral leukemia*) kandub viraalsel teel üle.
+
 
 *** =right
 ![avl](http://www.nature.com/nrc/journal/v10/n12/images/nrc2961-f1.jpg)
@@ -79,17 +81,24 @@ strong {
 ---
 ## Rousi kana sarkoomi mudeli skeem
 
+- 1909-11 aastatel katsetas **Francis Peyton Rous** (1879-1970) talle uurimiseks toodud **kana sarkoomiga** ja leidis samuti, et seda tuumorit on võimalik kanadel üle kanda vähi rakkudest sõltumatult.
+
 ![rousmethod](http://o.quizlet.com/wwG.Q0fCHg8IoXzObiRWeg.png)
+
+<footer class="source">Pilt: The Biology of Cancer. Garland Science.
+</footer>
 
 ---
 ## Rous pälvis selle töö eest 1966 aastal Nobeli preemia
 
 ![rous](http://cancerbio.files.wordpress.com/2011/05/peyton-rous.jpg)
 
+
 --- 
 ## Peale esialgseid avastusi oli onkoviiruste alal tükk aega vaikus
 
 - 1930-ndatel kirjeldati Richard E. Shope (1901-1966) and E. Weston Hursti (1900-1980) poolt **küülikute papilloomiviirus** ja John Joseph Bittneri poolt (1904-1961) **hiirte piimanäärme viirus** (*mouse mammary tumor virus*, *MMTV*).
+
 - 1950-ndatel avastati Ludwig Grossi (1904-1999) poolt **hiirte leukeemiaviirus** (retroviirus) ja **hiirte polüoomiviirus**
 
 --- &twocol
@@ -100,12 +109,12 @@ strong {
 ![lifemag](http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg)
 
 *** =right
-Möödunud sajandi 50-ndatel aastatel, kui oli hiirte peal leitud seosed leukeemia ja viirusnakkuse vahel, tekkis hüpotees, et vähk ongi viirushaigus.
+Möödunud sajandi 50-ndatel aastatel, kui oli hiirte peal leitud seosed leukeemia ja viirusnakkuse vahel, tekkis **hüpotees, et vähk viirushaigus**.
 
 --- &twocol bg:lavender
 ## Viirused põhjustavad rakkude transformatsiooni
 
-1950-ndate lõpus ja 1960-ndatel uuris Harry Rubin **Rousi sarkoomiviirust (RSV)** koekultuuris, kasutades kana fibroblaste (CEF)
+1950-ndate lõpus ja 1960-ndatel uurisid Harry Rubin ja Howard Temin **Rousi sarkoomiviirust (RSV)** koekultuuris, kasutades kana fibroblaste (CEF)
 
 *** =left
 
