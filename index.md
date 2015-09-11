@@ -103,7 +103,7 @@ strong {
 
 --- &twocol
 
-## Life magazine 1962: “Cancer may be infectious.
+## Vähk võib olla nakkav
 
 *** =left
 ![lifemag](http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg)
