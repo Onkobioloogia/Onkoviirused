@@ -111,8 +111,11 @@ strong {
 *** =right
 Möödunud sajandi 50-ndatel aastatel, kui oli hiirte peal leitud seosed leukeemia ja viirusnakkuse vahel, tekkis **hüpotees, et vähk on viirushaigus**.
 
---- &twocol bg:lavender
+---.segue .dark .nobackground
 ## Viirused põhjustavad rakkude transformatsiooni
+
+--- &twocol bg:lavender
+## Rousi sarkoomiviirus muudab fibroblaste
 
 1950-ndate lõpus ja 1960-ndatel uurisid Harry Rubin ja Howard Temin **Rousi sarkoomiviirust (RSV)** koekultuuris, kasutades kana fibroblaste (CEF)
 
