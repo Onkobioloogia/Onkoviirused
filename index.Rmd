@@ -260,7 +260,7 @@ Põhinedes RSV võimel mõni päev peale nakatamist rakke transformeerida, töö
 
 - RSV-indutseeritud transformatsioon kandub järglasrakkudele edasi.
 
-- Kas tegemist on nn. *hit and run* mehhanismiga või on viiruse aktiivsus transormatsiooniks permanentselt vajalik
+- Kas tegemist on nn. *hit and run* mehhanismiga või on viiruse aktiivsus transformatsiooniks permanentselt vajalik
     - *hit and run*: transformeerunud fenotüüp kandub edasi juba viirusest sõltumatult.
 
 - Viirusgeenide vajalikkus selgus 1970 kui avaldati *Nature* artikkel kus kirjeldati  temperatuuritundliku (*ts*) RSV mutandiga tehtud katseid:
