@@ -218,14 +218,6 @@ Merkeli rakkude polüoomiviirus | dsDNA polüoomiviirus | Merkeli rakkude kartsi
 ![HPV](http://www.uvm.edu/medicine/pathology/images/evans3rdsetofimages.jpg)
 
 ---
-## Viirused põhjustavad kasvajaid mitut moodi
-Mehhanismid langevad kahte laia kategooriasse.
-
-- **otsene mehhanism: insertsiooniline mutagenees**, onkviirused nakatavad normaalseid rakke ja integreeruvad genoomi põhjustades muutunud lokaalset geeniekspressiooni. Kui rakud koguvad veel lisamutatsioone või leiab aset immuunsüsteemi nõrgenemine, siis võivad sellised rakud viia vähi tekkeni. 
-
-- **kaudne mehhanism**, viirusinfektsioon põhjustab põletikku. Krooniline põletik tõstab vähitekke riski selles koes.
-
----
 ## Kaposi sarkoom ja AIDS
 
 Enne AIDSi epideemiat oli Kaposi sarkoom üliharuldane.
@@ -233,6 +225,17 @@ Enne AIDSi epideemiat oli Kaposi sarkoom üliharuldane.
 ![KSHV](http://1.bp.blogspot.com/-kY9S0A0KJkQ/TY0pqUgWCGI/AAAAAAAAA_M/hyT-Z9YJDhw/ht_philadelphia_051209_ssh.jpg)
 
 HIV ise ei ole tumorigeenne, kuid loob immuunpuudulikkuse näol keskkonna kasvaja-viiruste "kapist välja" tulemiseks.
+
+---.segue .dark .nobackground
+## Viiruste vähimehhanismid
+
+---
+## Viirused põhjustavad kasvajaid mitut moodi
+Mehhanismid langevad kahte laia kategooriasse.
+
+- **otsene mehhanism: insertsiooniline mutagenees**, onkviirused nakatavad normaalseid rakke ja integreeruvad genoomi põhjustades muutunud lokaalset geeniekspressiooni. Kui rakud koguvad veel lisamutatsioone või leiab aset immuunsüsteemi nõrgenemine, siis võivad sellised rakud viia vähi tekkeni. 
+
+- **kaudne mehhanism**, viirusinfektsioon põhjustab põletikku. Krooniline põletik tõstab vähitekke riski selles koes.
 
 --- bg:lavender
 ## src paradigma
@@ -243,9 +246,7 @@ Põhinedes RSV võimel mõni päev peale nakatamist rakke transformeerida, töö
 
 ---- bg:lavender
 
-# Kasutades seda katsesüsteemi, leiti et
-
-**Paljunemine ja raku transformeerimine on viirusel eraldi funktsioonid.**
+## Paljunemine ja raku transformeerimine on viirusel eraldi funktsioonid
 
 - **raku fenotüüp on viiruse genoomi kontrolli all**, on olemas RSV mutandid, mis põhjustavad transformeerimisel rakkudel pikenenud fenotüübi;
 
