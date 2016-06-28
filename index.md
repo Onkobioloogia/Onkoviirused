@@ -13,59 +13,62 @@ knit        : slidify::knit2slides
 
 <!-- Limit image width and height -->
 <style type="text/css">
-img {     
-  max-height: 480px;     
-  max-width: 600px; 
+img {
+  max-height: 480px;
+  max-width: 600px;
 }
 </style>
 
 <style> .title-slide {
-  background-image:url(http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg); 
-  background-repeat: no-repeat; 
-  background-position: 90% 5%; 
-  background-size: 46%; 
+  background-image:url(http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg);
+  background-repeat: no-repeat;
+  background-position: 90% 5%;
+  background-size: 46%;
   background-color: #CBE7A5; /* ; ; */ }
   background-color: #FFFFFF; /*#CBE7A5 #EDE0CF; ; #CA9F9D*/
 }
 
-<style> .title-slide {
-  background-color: #FFFFFF; /*#CBE7A5 #EDE0CF; ; #CA9F9D*/
-}
+<!-- <style> .title-slide { -->
+<!--   background-color: #FFFFFF; /*#CBE7A5 #EDE0CF; ; #CA9F9D*/ -->
+<!-- } -->
 
-.title-slide hgroup > h1{
- font-family: 'Oswald', 'Helvetica', sanserif; 
-}
+<!-- .title-slide hgroup > h1{ -->
+<!--  font-family: 'Oswald', 'Helvetica', sanserif;  -->
+<!-- } -->
 
-.title-slide hgroup > h1, 
-.title-slide hgroup > h2 {
-  color: #535E43 ;  /* ; #EF5150*/
-}
+<!-- .title-slide hgroup > h1,  -->
+<!-- .title-slide hgroup > h2 { -->
+<!--   color: #535E43 ;  /* ; #EF5150*/ -->
+<!-- } -->
 </style>
 
 <!-- Center image on slide -->
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+
 <script type="text/javascript">
-$(function() {     
-  $("p:has(img)").addClass('centered'); 
+$(function() {
+  $("p:has(img)").addClass('centered');
 });
 </script>
 
 <!-- Italic -->
-<style>
-em {
-  font-style: italic
-}
-</style>
+<!-- <style> -->
+<!-- em { -->
+<!--   font-style: italic -->
+<!-- } -->
+<!-- </style> -->
 
 <!-- Bold -->
-<style>
-strong {
-  font-weight: bold;
-}
-</style>
+<!-- <style> -->
+<!-- strong { -->
+<!--   font-weight: bold; -->
+<!-- } -->
+<!-- </style> -->
+
 
 ---.segue .dark .nobackground
-## Tuumor-/onkoviiruste avastamine
+## Tuumor-onkoviiruste avastamine
+
 
 --- &twocol
 ## Lindude leukeemia viraalne ülekanne
@@ -381,6 +384,24 @@ Relationships between HPV integration, copy-number amplifications and gene expre
 - All mutations in these three genes were within the antigen-presenting domains of each respective protein.
 - Pathway analyses also revealed that the most significantly mutated gene set in squamous cell carcinomas involves immune response genes in the interferon-γ signalling pathway, including mutations in IFNG and JAK2. 
 - Together, these data highlight the significance of the synergy between HPV infection and an altered immune response in squamous cell carcinomas of the cervix.
+
+--- &twocol
+## SV40 kasutab samu mehhanisme mis toimivad spontaansetes kasvajates
+
+
+***=left
+
+- The co-occurrence of PPP2R1A and TP53 mutations mirrors the dual mechanism of transformation by the SV40 oncovirus.
+- **Small T antigen binds PPP2R1A** to disrupt association with PP2A regulatory subunits 
+- and **large T antigen mediates TP53 inactivation**.
+
+***=right
+
+![sv40T](assets/img/Gibson2016SuppFig12.png)
+
+<footer class="source">Pilt: The genomic landscape and evolution of endometrial carcinoma progression and abdominopelvic metastasis. [doi:10.1038/ng.3602](http://www.nature.com/ng/journal/vaop/ncurrent/full/ng.3602.html)
+</footer>
+
 
 --- &twocol
 ## Comprehensive molecular characterization of gastric adenocarcinoma

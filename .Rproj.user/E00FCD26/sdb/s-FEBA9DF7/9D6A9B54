@@ -1,17 +1,21 @@
 {
-    "contents" : "library(slidify)\nlibrary(\"slidifyLibraries\")\n# kolmas loeng\n# setwd(\"~/Dropbox/Onkobioloogia/\")\n# author(\"Onkoviirused\")\nslidify(\"index.Rmd\")\nbrowseURL(\"index.html\")\npublish_github(\"Onkoviirused\",\"tpall\")\n",
+    "collab_server" : "",
+    "contents" : "library(\"slidify\")\nlibrary(\"slidifyLibraries\")\n# kolmas loeng\n# setwd(\"~/Dropbox/Onkobioloogia/\")\n# author(\"Onkoviirused\")\nslidify(\"index.Rmd\")\nbrowseURL(\"index.html\")\npublish_github(\"Onkoviirused\",\"tpall\")\n",
     "created" : 1418828842355.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "4101642746",
+    "hash" : "707814763",
     "id" : "9D6A9B54",
-    "lastKnownWriteTime" : 1441979497,
+    "lastKnownWriteTime" : 1467104972,
+    "last_content_update" : 1467104972878,
     "path" : "~/Dropbox/Onkobioloogia/Onkoviirused/create.R",
     "project_path" : "create.R",
     "properties" : {
+        "chunk_rendered_width" : "606"
     },
     "relative_order" : 0,
     "source_on_save" : false,
+    "source_window" : "",
     "type" : "r_source"
 }

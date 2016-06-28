@@ -1,4 +1,4 @@
-library(slidify)
+library("slidify")
 library("slidifyLibraries")
 # kolmas loeng
 # setwd("~/Dropbox/Onkobioloogia/")
