@@ -1,124 +1,88 @@
 ---
 title       : Kasvajaviirused
 subtitle    : Onkobioloogia
-author      : Taavi Päll
-job         : lektor, Tallinna Tehnikaülikool
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
-knit        : slidify::knit2slides
+author      : Taavi Päll<br>lektor, Tallinna Tehnikaülikool
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+background-image: url(http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg)
 ---
 
-<!-- Limit image width and height -->
-<style type="text/css">
-img {
-  max-height: 480px;
-  max-width: 600px;
-}
-</style>
 
-<style> .title-slide {
-  background-image:url(http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg);
-  background-repeat: no-repeat;
-  background-position: 90% 5%;
-  background-size: 46%;
-  background-color: #CBE7A5; /* ; ; */ }
-  background-color: #FFFFFF; /*#CBE7A5 #EDE0CF; ; #CA9F9D*/
-}
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align='center')
+```
 
-<!-- <style> .title-slide { -->
-<!--   background-color: #FFFFFF; /*#CBE7A5 #EDE0CF; ; #CA9F9D*/ -->
-<!-- } -->
-
-<!-- .title-slide hgroup > h1{ -->
-<!--  font-family: 'Oswald', 'Helvetica', sanserif;  -->
-<!-- } -->
-
-<!-- .title-slide hgroup > h1,  -->
-<!-- .title-slide hgroup > h2 { -->
-<!--   color: #535E43 ;  /* ; #EF5150*/ -->
-<!-- } -->
-</style>
-
-<!-- Center image on slide -->
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-
-<script type="text/javascript">
-$(function() {
-  $("p:has(img)").addClass('centered');
-});
-</script>
-
-<!-- Italic -->
-<!-- <style> -->
-<!-- em { -->
-<!--   font-style: italic -->
-<!-- } -->
-<!-- </style> -->
-
-<!-- Bold -->
-<!-- <style> -->
-<!-- strong { -->
-<!--   font-weight: bold; -->
-<!-- } -->
-<!-- </style> -->
-
-
----.segue .dark .nobackground
-## Tuumor-onkoviiruste avastamine
-
-
---- &twocol
-## Lindude leukeemia viraalne ülekanne
-
-
-*** =left
-- 1908 aastal näitasid Taani teadlased **Vilhelm Ellerman** (1871-1924) ja **Oluf Bang** (1881-1937) et **lindude leukeemia** (*avian viral leukemia*) kandub viraalsel teel üle.
-
-
-*** =right
-![avl](http://www.nature.com/nrc/journal/v10/n12/images/nrc2961-f1.jpg)
+background-image: url(http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg)
 
 ---
-## Rousi kana sarkoomi mudeli skeem
-
-- 1909-11 aastatel katsetas **Francis Peyton Rous** (1879-1970) talle uurimiseks toodud **kana sarkoomiga** ja leidis samuti, et seda tuumorit on võimalik kanadel üle kanda vähi rakkudest sõltumatult.
-
-![rousmethod](http://o.quizlet.com/wwG.Q0fCHg8IoXzObiRWeg.png)
-
-<footer class="source">Pilt: The Biology of Cancer. Garland Science.
-</footer>
+class: inverse, center, middle
+# Tuumorviiruste avastamine
 
 ---
-## Rous pälvis selle töö eest 1966 aastal Nobeli preemia
 
-![rous](http://cancerbio.files.wordpress.com/2011/05/peyton-rous.jpg)
+# Lindude leukeemia viraalne ülekanne
+
+.pull-left[
+- 1908 aastal näitasid Taani teadlased **Vilhelm Ellerman** (1871-1924) ja **Oluf Bang** (1881-1937) et **lindude leukeemia** (*avian viral leukemia*) kandub viraalsel teel üle.]
 
 
---- 
+.pull-right[
+![avl](http://www.nature.com/nrc/journal/v10/n12/images/nrc2961-f1.jpg)]
+
+---
+
+# Rousi kana sarkoomi mudeli skeem
+
+- 1909-11 aastatel katsetas **Francis Peyton Rous** (1879-1970) talle uurimiseks toodud **kana sarkoomiga** ja leidis et tuumorit on võimalik kanadel üle kanda vähi rakkudest sõltumatult.
+
+
+```{r}
+knitr::include_graphics("http://o.quizlet.com/wwG.Q0fCHg8IoXzObiRWeg.png")
+```
+
+
+.footer[Pilt: The Biology of Cancer. Garland Science.]
+
+---
+
+# Rous pälvis selle töö eest 1966 aastal Nobeli preemia
+
+```{r}
+knitr::include_graphics("http://cancerbio.files.wordpress.com/2011/05/peyton-rous.jpg")
+```
+
+
+---
+
 ## Peale esialgseid avastusi oli onkoviiruste alal tükk aega vaikus
 
 - 1930-ndatel kirjeldati Richard E. Shope (1901-1966) and E. Weston Hursti (1900-1980) poolt **küülikute papilloomiviirus** ja John Joseph Bittneri poolt (1904-1961) **hiirte piimanäärme viirus** (*mouse mammary tumor virus*, *MMTV*).
 
 - 1950-ndatel avastati Ludwig Grossi (1904-1999) poolt **hiirte leukeemiaviirus** (retroviirus) ja **hiirte polüoomiviirus**
 
---- &twocol
+---
 
-## Vähk võib olla nakkav
+# Vähk võib olla nakkav
 
-*** =left
-![lifemag](http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg)
+.pull-left[
+![lifemag](http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg)]
 
-*** =right
-Möödunud sajandi 50-ndatel aastatel, kui oli hiirte peal leitud seosed leukeemia ja viirusnakkuse vahel, tekkis **hüpotees, et vähk on viirushaigus**.
+.pull-right[
+Möödunud sajandi 50-ndatel aastatel, kui oli hiirte peal leitud seosed leukeemia ja viirusnakkuse vahel, tekkis **hüpotees, et vähk on viirushaigus**.]
 
----.segue .dark .nobackground
-## Viirused põhjustavad rakkude transformatsiooni
+---
+class: inverse, center, middle
+# Viirused põhjustavad rakkude transformatsiooni
 
---- &twocol bg:lavender
-## Rousi sarkoomiviirus muudab fibroblaste
+---
+
+# Rousi sarkoomiviirus muudab fibroblaste
 
 1950-ndate lõpus ja 1960-ndatel uurisid Harry Rubin ja Howard Temin **Rousi sarkoomiviirust (RSV)** koekultuuris, kasutades kana fibroblaste (CEF)
 
