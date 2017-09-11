@@ -14,5 +14,5 @@ Pole täpselt teada miks meestel HPV nakkus enamasti vähini ei vii. Kuid on tõ
 
 ![HPV](https://github.com/tpall/Onkoviirused/blob/gh-pages/index_files/figure-html/unnamed-chunk-11-1.png)
 
-Graafiku andmed: Tervisestatistika ja terviseuuringute andmebaas. 
-[Tervise arengu instituut](http://pxweb.tai.ee/PXWeb2015/index.html)
+Graafiku andmed: Tervisestatistika ja terviseuuringute andmebaas, 
+[Tervise arengu instituut](http://pxweb.tai.ee/PXWeb2015/index.html).
