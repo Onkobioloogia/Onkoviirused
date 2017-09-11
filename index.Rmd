@@ -223,7 +223,7 @@ knitr::include_graphics("https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.
 - Oma hüpoteesi kontrollimiseks **hübridiseeris ta papilloomiviiruse DNA emakakaelavähi DNA-le.**
 
 
-```{r, fig.height=3, fig.width=8}
+```{r, fig.height=3, fig.width=8, dev='svg'}
 library(dplyr)
 library(purrr)
 library(jsonlite)
