@@ -15,7 +15,7 @@ background-image: url(http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(echo = FALSE, fig.align='center')
+knitr::opts_chunk$set(echo = FALSE, fig.align='center', message = FALSE, warning = FALSE)
 ```
 
 background-image: url(http://33.media.tumblr.com/tumblr_m5tnjt5vDR1qbz9meo1_500.jpg)
@@ -29,8 +29,10 @@ class: inverse, center, middle
 # Lindude leukeemia viraalne ülekanne
 
 .pull-left[
-- 1908 aastal näitasid Taani teadlased **Vilhelm Ellerman** (1871-1924) ja **Oluf Bang** (1881-1937) et **lindude leukeemia** (*avian viral leukemia*) kandub viraalsel teel üle.]
-
+- 1908 aastal näitasid Taani teadlased **Vilhelm Ellerman** (1871-1924) ja **Oluf Bang** (1881-1937) et **lindude leukeemia** (*avian viral leukemia*) kandub viraalsel teel üle.
+- viraalsel teel tähendas antud kontekstis, et nad isoleerisid filtreeritava agendi erütro-müeloblastilist leukeemiat põdevate kanade vererakkudest.
+- See leid ei tekitanud sellel ajal mingit tähelepanu, lisaks ei peetud tollal erütro-müeloblastilist leukeemiat ka vähiks.
+]
 
 .pull-right[
 ```{r}
@@ -58,10 +60,9 @@ knitr::include_graphics("http://o.quizlet.com/wwG.Q0fCHg8IoXzObiRWeg.png")
 
 # Rous pälvis selle töö eest 1966 aastal Nobeli preemia
 
-```{r}
+```{r, out.height=300}
 knitr::include_graphics("http://cancerbio.files.wordpress.com/2011/05/peyton-rous.jpg")
 ```
-
 
 ---
 
@@ -129,7 +130,7 @@ knitr::include_graphics("http://o.quizlet.com/6TOz6bZnsMrOKfaPM2MXXQ.png")
 vir <- readr::read_delim("Tuumorviirus | Viirusperekond | Genoomi suurus (kb)
 DNA viirused | | 
 B-hepatiidi viirus (HBV) | hepadna | 3
-SV40/polüoomi (*polyoma*) | papova | 5
+SV40/polüoomi viirus | papova | 5
 inimese papilloomiviirus 16 (HPV) | papova | 8
 inimese adenoviirus 5 | adenoviirus | 35
 inimese herpesviirus 8 (HSV-8; KSHV) | herpesviirused | 165
@@ -207,57 +208,131 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/4/4c/Bur
 
 - Lisaks EBV-le on veel ainult üks inimese onkoviirus (T-lümfotroopne viirus I, HTLV-I) tuumorites kirjeldatud kasutades klassikalisi viroloogi töövahendeid: mikroskoopi ja viiruskultuuri.
 - B hepatiidi seos maksakartsinoomiga tehti kindlaks 22707 Taiwani meest hõlmavas populatsiooniuuringus.
-- HPV-16/18, C hepatiidi, Kaposi sarkoomi ja Merkeli rakkude polüoomiviirus identifitseeriti kasvajates molekulaarbioloogia meetodeid kasutades.
+- HPV-16/18 (all pildil kõige parempoolne HPV16 hübridisatsioon CIN), C hepatiidi, Kaposi sarkoomi ja Merkeli rakkude polüoomiviirus identifitseeriti kasvajates molekulaarbioloogia meetodeid kasutades.
+
+```{r}
+knitr::include_graphics("https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=789917&s=6&r=1&c=1")
+```
 
 ---
-## HPV ja emakakaelavähk
+
+# HPV ja emakakaelavähk
 
 - 1980-ndatel oli teada, et inimese papilloomiviirused põhjustavad kondüloomide (*genital warts*) teket.
 -  Selle põhal oletas Harald zur Hausen, et HPV võib olla seotud ka emakakaela vähi tekkega.
 - Oma hüpoteesi kontrollimiseks **hübridiseeris ta papilloomiviiruse DNA emakakaelavähi DNA-le.**
 
-![HPV](http://www.uvm.edu/medicine/pathology/images/evans3rdsetofimages.jpg)
+
+```{r, fig.height=3, fig.width=8}
+library(dplyr)
+library(purrr)
+library(jsonlite)
+library(ggplot2)
+library(gridExtra)
+library(ggthemes)
+
+# Anogenitaalsed tüükad (A63.0)
+nh04 <- boulder::json_to_df("data/NH04.json")
+pk30 <- boulder::json_to_df("data/PK30.json")
+
+mut_vanus <- function(x){
+  strsplit(x, split = "-") %>% 
+    unlist() %>% 
+    sub("\\+", "", .) %>% 
+    as.numeric() %>% 
+    min()
+}
+
+nh04filt <- select(nh04, Aasta, Sugu, Vanuserühm, value) %>% 
+  filter(complete.cases(.))
+pk30filt <- select(pk30, Aasta, Sugu, Vanuserühm, value) %>% 
+  filter(complete.cases(.))
+
+nh04filt <- nh04filt %>% 
+  mutate(Vanuserühm = as.character(Vanuserühm),
+         Vanuserühm = map_dbl(Vanuserühm, mut_vanus))
+
+pk30filt <- pk30filt %>% 
+  mutate(Vanuserühm = as.character(Vanuserühm),
+         Vanuserühm = map_dbl(Vanuserühm, mut_vanus))
+
+nh04sum <- group_by(nh04filt, Vanuserühm, Sugu) %>% 
+  summarise(Juhud = mean(value, na.rm = T))
+pk30sum <- group_by(pk30filt, Vanuserühm, Sugu) %>% 
+  summarise(Juhud = mean(value, na.rm = T))
+
+p <- ggplot(nh04sum, aes(Vanuserühm, Juhud, colour = Sugu, group = Sugu)) +
+  geom_point() +
+  geom_line() +
+  ggtitle(unique(nh04$Nakkushaigus),
+          paste(range(as.character(nh04$Aasta)), collapse = " - ")) +
+  scale_color_colorblind() +
+  theme(legend.position = c(0.75,0.75),
+        legend.background = element_blank(),
+        legend.title = element_blank())
+
+q <- ggplot(pk30sum, aes(Vanuserühm, Juhud, group = 1)) +
+  geom_point() +
+  geom_line() +
+  ggtitle("Emakakaela vähk (C53)",
+          paste(range(as.character(pk30$Aasta)), collapse = " - ")) +
+  ylab("Intsidents 100 000 inimese kohta") +
+  scale_color_colorblind()
+
+grid.arrange(p, q, nrow = 1)
+```
+
+.footer[
+Graafiku andmed: Tervisestatistika ja terviseuuringute andmebaas. [Tervise arengu instituut](http://pxweb.tai.ee/PXWeb2015/index.html).
+]
 
 ---
-## Kaposi sarkoom ja AIDS
+# Kaposi sarkoom ja AIDS
 
-Enne AIDSi epideemiat oli Kaposi sarkoom üliharuldane.
+Enne AIDSi epideemiat oli Kaposi sarkoom maailmas üliharuldane.
 
-![KSHV](http://1.bp.blogspot.com/-kY9S0A0KJkQ/TY0pqUgWCGI/AAAAAAAAA_M/hyT-Z9YJDhw/ht_philadelphia_051209_ssh.jpg)
+```{r}
+knitr::include_graphics("http://1.bp.blogspot.com/-kY9S0A0KJkQ/TY0pqUgWCGI/AAAAAAAAA_M/hyT-Z9YJDhw/ht_philadelphia_051209_ssh.jpg")
+```
 
 HIV ise ei ole tumorigeenne, kuid loob immuunpuudulikkuse näol keskkonna kasvaja-viiruste "kapist välja" tulemiseks.
 
----.segue .dark .nobackground
-## Viiruste vähimehhanismid
+---
+class: inverse, center, middle
+
+# Viiruste vähimehhanismid
 
 ---
-## Viirused põhjustavad kasvajaid mitut moodi
+
+# Viirused põhjustavad kasvajaid mitut moodi
+
 Mehhanismid langevad kahte laia kategooriasse.
 
 - **otsene mehhanism: insertsiooniline mutagenees**, onkviirused nakatavad normaalseid rakke ja integreeruvad genoomi põhjustades muutunud lokaalset geeniekspressiooni. Kui rakud koguvad veel lisamutatsioone või leiab aset immuunsüsteemi nõrgenemine, siis võivad sellised rakud viia vähi tekkeni. 
 
 - **kaudne mehhanism**, viirusinfektsioon põhjustab põletikku. Krooniline põletik tõstab vähitekke riski selles koes.
 
---- bg:lavender
-## src paradigma
+---
 
-Põhinedes RSV võimel mõni päev peale nakatamist rakke transformeerida, töötati 1958 Temini a Rubini poolt välja nn **_focus assay_** 
+# src paradigma
+
+Põhinedes RSV võimel mõni päev peale nakatamist rakke transformeerida, töötati 1958. Temini a Rubini poolt välja nn **_focus assay_** 
 
 - Fookuste hulk oli otseses seoses rakkudele lisatud RSV hulgaga, seega oli RSV täiesti piisav peremeesraku transformeerimiseks.
 
----- bg:lavender
+---
 
 ## Paljunemine ja raku transformeerimine on viirusel eraldi funktsioonid
 
-- **raku fenotüüp on viiruse genoomi kontrolli all**, on olemas RSV mutandid, mis põhjustavad transformeerimisel rakkudel pikenenud fenotüübi;
+- **Raku fenotüüp on viiruse genoomi kontrolli all**, on olemas RSV mutandid, mis põhjustavad transformeerimisel rakkudel pikenenud fenotüübi;
 
 - **viiruse paljunemine pole raku transformatsiooniks vajalik**, replikatsiooni-defektne mutant transformeeris rakke ilma viirust tootmata;
 
 - **tekivad spontaansed mutandid mis replitseeruvad kuid enam ei transformeeri**, enamus RSV liine on mitte-defektsed (neil on genoomis olemas kõik viiruse replikatsiooniks vajalikud geenid ja onkogeen).
 
+---
 
----- bg:lavender
-## RSV geenide aktiivsus on vajalik transformatsiooniks
+# Rousi sarkoomi viiruse geenide aktiivsus on vajalik transformatsiooniks
 
 - RSV-indutseeritud transformatsioon kandub järglasrakkudele edasi.
 
@@ -267,42 +342,57 @@ Põhinedes RSV võimel mõni päev peale nakatamist rakke transformeerida, töö
 - Viirusgeenide vajalikkus selgus 1970 kui avaldati *Nature* artikkel kus kirjeldati  temperatuuritundliku (*ts*) RSV mutandiga tehtud katseid:
     - transformatsioon oli temperatuuritundlik, kuid viiruse replikatsioon mitte.
 
---- bg:lavender
-## ALV/RSV virion
+---
 
-![rsv](http://o.quizlet.com/i.WMzcRr-oCjtmBh2GiwwA.png)
+# ALV/RSV virion
 
----- bg:lavender
-## Metsik tüüpi RSV vs. transformatsioonidefektne (td)
+```{r}
+knitr::include_graphics("http://o.quizlet.com/i.WMzcRr-oCjtmBh2GiwwA.png")
+```
+
+
+--- 
+
+# Metsik tüüpi RSV vs. transformatsioonidefektne (td)
 
 td RSV genoom on väiksem
 
-![src](http://www.nature.com/nrc/journal/v12/n9/images/nrc3320-f1.jpg)
-
---- bg:lavender
-## Lihtsa retroviiruse elutsükkel
-
-![rsvlife](http://o.quizlet.com/xJ0AWub9I3KjpnUom79whw.png)
+```{r}
+knitr::include_graphics("http://www.nature.com/nrc/journal/v12/n9/images/nrc3320-f1.jpg")
+```
 
 
---- &twocol bg:lavender
-## RSV src pärineb raku genoomist
+---
 
-***=left
+# Lihtsa retroviiruse elutsükkel
+
+```{r}
+knitr::include_graphics("http://o.quizlet.com/xJ0AWub9I3KjpnUom79whw.png")
+```
+
+---
+
+# RSV src pärineb raku genoomist
+
+.pull-left[
 Kasutades ära 1970 aastal RSV-st avastatud RNA sõltuvat DNA polümeraasi (pöördtranskriptaas) näidati, et selles viiruses olev transformeeriv src RNA järestus on pärit linnu genoomist.
 
 *The Nobel Prize in Physiology or Medicine 1975 was awarded jointly to David Baltimore, Renato Dulbecco and Howard Martin Temin "for their discoveries concerning the interaction between tumour viruses and the genetic material of the cell".*
+]
 
-***=right
+.pull-right[
 
-![csrc](http://o.quizlet.com/Eby4zdSHLvqEuPGeLks7bA.png)
+```{r}
+knitr::include_graphics("http://o.quizlet.com/Eby4zdSHLvqEuPGeLks7bA.png")
+```
+]
 
+---
 
---- bg:lavender
+### Retroviiruste onkovalkude funktsionaalsed klassid
 
-# Retroviiruste onkovalkude funktsionaalsed klassid
-Klass | Näide | Viirus
------------------|----------|--------------
+```{r}
+vir <- readr::read_delim("Klass | Näide | Viirus
 kasvufaktor | Sis (PDGFB) | ahvi sarkoomiviirus
 retseptor TK | ErbB (EGFR) | linnu erütroblastoosi viirus
 hormoonretseptor | ErbA (THRA) | linnu erütroblastoosi viirus
@@ -316,12 +406,18 @@ seriin/treoniin kinaas | Akt, tsütoplasma kinaas | Akt8 hiire thymoma virus
 transkriptsiooni regulaator |  Jun, AP1 TF kompleks | linnu sarkoomiviirus 17
                           | Fos, AP1 TF kompleks | Finkel–Biskis–Jinkins hiire sarkoomiviirus
                           | Myc, transkriptsioonifaktor | linnu müelotsütomatoosi viirus MC29
-lipiidikinaas | Pi3k | linnu sarkoomiviirus 16
+lipiidikinaas | Pi3k | linnu sarkoomiviirus 16", delim = "|")
+virtab <- knitr::kable(vir, format = "html")
+kableExtra::kable_styling(virtab, "striped", position = "left", font_size = 12)
+```
+
 
 ---
-# Ka mitte transformeerivad viirused võivad aktiveerida proto-onkogeene genoomi insertsioonil
-Geen | Viirus | Kasvaja | Liik | Onkovalk
------|---------------------|------------|---------|-----------------------
+
+### Ka mitte transformeerivad viirused võivad aktiveerida proto-onkogeene genoomi insertsioonil
+
+```{r}
+vir <- readr::read_delim("Geen | Viirus | Kasvaja | Liik | Onkovalk
 myc | ALV | B-raku lümfoom | kana | transkriptsiooni faktor
 myc | ALV, FeLV | T-raku lümfoom | kana, kass | transkriptsiooni faktor
 nov | ALV | nefroblastoom | kana | kasvufaktor
@@ -336,11 +432,15 @@ lck | Mo-MLV |  T-raku lümfoom | hiir | mitte-retseptor TK
 p53 | Mo-MLV | T-raku lümfoom | hiir | transkriptsioonifaktor
 IL2 | GaLV | T-raku lümfoom | gibbon ape | tsütokiin
 K-ras |F-MLV | T-raku lümfoom | hiir | väike G valk
-CycD1 | F-MLV | T-raku lümfoom | hiir | G1 tsükliin
+CycD1 | F-MLV | T-raku lümfoom | hiir | G1 tsükliin", delim = "|")
+virtab <- knitr::kable(vir, format = "html")
+kableExtra::kable_styling(virtab, "striped", position = "left", font_size = 12)
+```
 
 
---- bg:lavender
-## Viiruse onkogeenid: RNA versus DNA viirused
+---
+
+# Viiruse onkogeenid: RNA versus DNA viirused
 
 - Retroviiruste onkogeenid on rakulist päritolu ja peamiselt dereguleerivad signalisatsiooni ja transkriptsiooni kontrolli (SRC, MYC, RAS, ERBB).
 
@@ -348,105 +448,110 @@ CycD1 | F-MLV | T-raku lümfoom | hiir | G1 tsükliin
 
 - **DNA viiruste onkogeenid toimivad rakuliste kontrollmehhanismide blokeerimise teel**, nt. HPV E6 ja SV40 LT inhibeerivad p53, HPV E7 inhibeerib RB-d.  
 
---- &twocol bg:lavender
-## Viiruse onkovalkude päritolu
+---
+
+# Viiruse onkovalkude päritolu
 
 Kas (i) viirus paneb rakulise jagunemise masinavärgi tööle selleks, et paljuneda või (ii) üritab immunsüsteemile märkamatuks jääda.
 
-***=left
-![onc](http://www.nature.com/nrc/journal/v10/n12/images/nrc2961-f3.jpg)
+.pull-left[
 
-***=right
+```{r, out.width=260}
+knitr::include_graphics("http://www.nature.com/nrc/journal/v10/n12/images/nrc2961-f3.jpg")
+```
+
+]
+
+.pull-right[
 - Viiruse onkogeenid inhibeerivad raku tuumor-supressor funktsioone (**piiratud ressursid**), et tagada viiruse paljunemine ja vähi teke on tingitud juhuslikest mutatsioonidest.
 - Viiruse strateegia on peremehe kaasasündinud (*innate*) immuunsuse vaiki hoidmine: tuumorsuppressorid on hõivatud ka kaasasündinud immuunsuses.
+]
 
---- &twocol 
+---
+
 ## Landscape of genomic alterations in cervical carcinomas
 
-***=left
-
-Relationships between HPV integration, copy-number amplifications and gene expression in cervical carcinoma
+.pull-left[
 
 - HPV integration occurred closer to amplified regions than expected by chance. 
 - Viral integration was localized to one locus in most tumours investigated. 
 - Many of the genes involved in the integration events are members of cellular pathways known to have important roles in cancer.
+]
 
-***=right
+.pull-right[
 
-![cervical](http://www.nature.com/nature/journal/v506/n7488/images/nature12881-f3.jpg)
+```{r, out.height=380}
+knitr::include_graphics("http://www.nature.com/nature/journal/v506/n7488/images/nature12881-f3.jpg")
+```
+
+]
+
+.footer[Pilt: The genomic landscape and evolution of endometrial carcinoma progression and abdominopelvic metastasis. [doi:10.1038/ng.3602](http://www.nature.com/ng/journal/vaop/ncurrent/full/ng.3602.html)
+]
+
+???
+
+Relationships between HPV integration, copy-number amplifications and gene expression in cervical carcinoma
 
 ---
-## Altered immune response in cervical carcinomas
 
-- Mutations in the HLA-B, HLA-A and in the β2-microglobulin (B2M) genes. 
+# Altered immune response in cervical carcinomas
+
+- Mutations in the HLA-B, HLA-A and in the $\beta2$-microglobulin (B2M) genes. 
 - All mutations in these three genes were within the antigen-presenting domains of each respective protein.
 - Pathway analyses also revealed that the most significantly mutated gene set in squamous cell carcinomas involves immune response genes in the interferon-γ signalling pathway, including mutations in IFNG and JAK2. 
 - Together, these data highlight the significance of the synergy between HPV infection and an altered immune response in squamous cell carcinomas of the cervix.
 
---- &twocol
-## SV40 kasutab samu mehhanisme mis toimivad spontaansetes kasvajates
+---
 
+# SV40 kasutab samu mehhanisme mis toimivad spontaansetes kasvajates
 
-***=left
+.pull-left[
 
 - The co-occurrence of PPP2R1A and TP53 mutations mirrors the dual mechanism of transformation by the SV40 oncovirus.
 - **Small T antigen binds PPP2R1A** to disrupt association with PP2A regulatory subunits 
 - and **large T antigen mediates TP53 inactivation**.
+]
 
-***=right
+.pull-right[
 
-![sv40T](assets/img/Gibson2016SuppFig12.png)
+```{r, out.width=240}
+knitr::include_graphics("assets/img/Gibson2016SuppFig12.png")
+```
 
-<footer class="source">Pilt: The genomic landscape and evolution of endometrial carcinoma progression and abdominopelvic metastasis. [doi:10.1038/ng.3602](http://www.nature.com/ng/journal/vaop/ncurrent/full/ng.3602.html)
-</footer>
+]
 
+---
 
---- &twocol
-## Comprehensive molecular characterization of gastric adenocarcinoma
+# Comprehensive molecular characterization of gastric adenocarcinoma
 
-***=left
+.pull-left[
 
 - EBV is found within malignant epithelial cells in 9% of gastric cancers.
 - Amplification of 9p locus containing JAK2, CD274 and PDCD1LG2 was enriched in the EBV subgroup (15% of tumours).
     - JAK2 encodes a receptor tyrosine kinase and potential therapeutic target. 
     - CD274 and PDCD1LG2 encode PD-L1 and PD-L2, immunosuppressant proteins.
+]
 
-***=right
+.pull-right[
 
-![gastric](gastriccancer.jpg)
+```{r}
+knitr::include_graphics("assets/img/gastriccancer.jpg")
+```
 
---- 
+]
 
-## Viited
+---
+class: inverse, center, middle
 
-- Why do viruses cause cancer? Highlights of the first century of human tumour virology
-Patrick S. Moore & Yuan Chang
-Nature Reviews Cancer 10, 878-889 (December 2010)
-doi:10.1038/nrc2961
-- Retroviral oncogenes: a historical primer
-Peter K. Vogt
-Nature Reviews Cancer 12, 639-648 (September 2012)
-doi:10.1038/nrc3320
-- The Biology of Cancer
-Robert A. Weinberg
-Garland Science (2007)
-ISBN: 9780815340782
-- Landscape of genomic alterations in cervical carcinomas
-Nature 506, 371–375 (20 February 2014) doi:10.1038/nature12881
-- Comprehensive molecular characterization of gastric adenocarcinoma
-The Cancer Genome Atlas Research Network
-Nature 513, 202–209 (11 September 2014) doi:10.1038/nature13480
+# Lingid loengutele
 
---- .segue .dark .nobackground
+---
+class: middle
 
-## Lingid loengutele
+.pull-left[
 
---- &twocol 
-
-***=left 
-
-- [Sissejuhatav loeng](http://tpall.github.io/sissejuhatus)
-- [Vähitüübid](http://tpall.github.io/Vahityybid)
+- [Sissejuhatav loeng](http://tpall.github.io/onkobioloogia)
 - [Onkoviirused](http://tpall.github.io/Onkoviirused)
 - [Onkogeenid](http://tpall.github.io/Onkogeenid)
 - [Retseptorid](http://tpall.github.io/Retseptorid)
@@ -454,8 +559,9 @@ Nature 513, 202–209 (11 September 2014) doi:10.1038/nature13480
 - [Tuumorsupressorgeenid](http://tpall.github.io/Tuumorsupressorid)
 - [Rakutsüklikontroll](http://tpall.github.io/Rakutsyklikontroll)
 
+]
 
-***=right 
+.pull-right[
 
 - [p53 ja apoptoos](http://tpall.github.io/p53-ja-apoptoos)
 - [Immortalisatsioon](http://tpall.github.io/Immortalisatsioon)
@@ -465,3 +571,4 @@ Nature 513, 202–209 (11 September 2014) doi:10.1038/nature13480
 - [Metastaasid](http://tpall.github.io/Metastaas)
 - [Immuunsus](http://tpall.github.io/Immuunsus)
 - [Vahiravim](http://tpall.github.io/Vahiravim) 
+]
