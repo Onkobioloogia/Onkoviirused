@@ -2,7 +2,7 @@
 
 
 ### Inimese papilloomiviiruse (HPV) roll emakakaelavähis
-Harald zur Hauseni teadustöö uurimaks viiruste rolli vähi tekkes viis leiuni, et emakakaela vähk, mis on seksuaalsel teel leviv haigus, on seotud HPV nakkusega. Selle pikaajalise uurimistöö eest pälvis Harald zur Hausen 2008.aastal Nobeli preemia.
+Harald zur Hauseni teadustöö uurimaks viiruste rolli vähi tekkes viis leiuni, et emakakaela vähk, mis on seksuaalsel teel leviv haigus, on seotud HPV nakkusega. Selle pikaajalise uurimistöö eest pälvis Harald zur Hausen 2008. aastal Nobeli preemia.
 Inimese papilloomiviirused põhjustavad kondüloomide (*genital warts*) teket. Papilloomiviiruseid on kirjeldatud natuke üle 100 
 tüve, neist on kasvajatega seotud tüved HPV16/18. HPV16 vastutab umbes poolte emakakaelavähi juhtumite eest ja HPV18 on seotud 20-25% juhtudega. Inimesed hakkavad nakatuma papiloomiviirustega teismeliseeas seksuaalelu 
 algusega, vanuses 14+. 
